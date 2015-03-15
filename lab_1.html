@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Лабораторная работа №1</title>
+        <link rel="stylesheet" type="text/css" href="/graphics/css/common.css">
+        <script type="text/javascript" src="/graphics/js/common.js"></script> 
+    <head>
+    <body>
+        <div id="wrap">
+            <div id="title">
+                <b>Лабораторная работа №1</b>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div id="menu">
+                            <br>
+                            <div class="menu_item">
+                                <div class="menu_title">Прямая</div>
+                                    Точка P1<br>
+                                <table class="wide">
+                                    <tr>
+                                        <td class="c_2">
+                                            <input type="text" id="p1_x" placeholder="x">
+                                        </td>
+                                        <td class="c_2">
+                                            <input type="text" id="p1_y" placeholder="y">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>Точка P2<br>
+                                <table class="wide">
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="p2_x" placeholder="x">
+                                        </td>
+                                        <td>
+                                            <input type="text" id="p2_y" placeholder="y">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <div class="btn green_btn" onclick="laba.draw('line');">Нарисовать</div>
+                            </div>
+                            <br>
+                            <div class="menu_item">
+                                <div class="menu_title">Треугольник</div>
+                                Вершина A<br>
+                                <table class="wide">
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="a_x" placeholder="x">
+                                        </td>
+                                        <td>
+                                            <input type="text" id="a_y" placeholder="y">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>Вершина B<br>
+                                <table class="wide">
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="b_x" placeholder="x">
+                                        </td>
+                                        <td>
+                                            <input type="text" id="b_y" placeholder="y">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>Вершина C<br>
+                                <table class="wide">
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="c_x" placeholder="x">
+                                        </td>
+                                        <td>
+                                            <input type="text" id="c_y" placeholder="y">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <div class="btn green_btn" onclick="laba.draw('triangle');">Нарисовать</div>
+                            </div>
+                            <br>
+                            <div class="menu_item">
+                                <input type="checkbox" id="grid_cb" style="width: auto">
+                                Показать сетку
+                            </div>
+                            <br>
+                            <div class="menu_item" align="center">
+                                <div class="btn green_btn" onclick="laba.mirror();">Отразить</div>
+                            </div>
+                            <br>
+                            <div class="menu_title">
+                                <a href="index.html">Вернуться к списку работ</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="board"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var laba = new Lab1();
+            laba.init({"board": ge("board"),
+                       "settings": {"grid_cb": ge("grid_cb")},
+                       "line": {"p1_x": ge("p1_x"),
+                                "p1_y": ge("p1_y"),
+                                "p2_x": ge("p2_x"),
+                                "p2_y": ge("p2_y")},
+                       "triangle": {"a_x": ge("a_x"),
+                                    "a_y": ge("a_y"),
+                                    "b_x": ge("b_x"),
+                                    "b_y": ge("b_y"),
+                                    "c_x": ge("c_x"),
+                                    "c_y": ge("c_y")}});
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Лабораторная работа №5</title>
+        <link rel="stylesheet" type="text/css" href="/graphics/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/graphics/css/jsxgraph.css">
+        <script type="text/javascript" src="/graphics/js/jsxgraphcore.js"></script> 
+        <script type="text/javascript" src="/graphics/js/three.min.js"></script> 
+        <script type="text/javascript" src="/graphics/js/common.js"></script>
+    <head>
+    <body>
+        <div id="wrap">
+            <div id="title">
+                <b>Лабораторная работа №5</b>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div id="menu">
+                            <br>
+                            <div class="menu_title">
+                                <a href="index.html">Вернуться к списку работ</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                    <div id="board"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var lab = new Lab5();
+            lab.init({"board": ge("board")});
+        </script>
+    </body>
+</html>

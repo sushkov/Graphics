@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Лабораторная работа №2-1</title>
+        <link rel="stylesheet" type="text/css" href="/graphics/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/graphics/css/jsxgraph.css">
+        <script type="text/javascript" src="/graphics/js/jsxgraphcore.js"></script> 
+        <script type="text/javascript" src="/graphics/js/three.min.js"></script> 
+        <script type="text/javascript" src="/graphics/js/common.js"></script>
+    <head>
+    <body>
+        <div id="dialog_view" class="viewer" style="z-index: 200; display: none">
+            <div id="edit_dialog" class="viewer_wrap">
+                <div class="dialog">
+                    <div id="edit_dialog_head" class="dialog_head">
+                        <div id="edit_dialog_title">Редактирование координат</div>
+                        <div id="edit_dialog_close" class="dialog_close_btn">
+                        Закрыть
+                        </div>
+                    </div>
+                    <div class="dialog_content" id="dialog_content" style="height: 300px; overflow: overlay;">
+                    </div>
+                    <table class="dialog_btns_tab">
+                        <tr>
+                            <td>
+                                <div id="edit_dialog_ok" class="dialog_btn btn green_btn">Продолжить</div>
+                            </td>
+                            <td>
+                                <div id="edit_dialog_cancel" class="dialog_btn btn green_btn">Отмена</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="wrap">
+            <div id="title">
+                <b>Лабораторная работа №2-1</b>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div id="menu">
+                            <br>
+                            <div class="menu_item">
+                                <div class="menu_title">Ломаная</div>
+                                Количество точек:<br>
+                                <input type="text" id="n" placeholder="N"><br>
+                                <div class="btn green_btn" onclick="lab.drawPolyLine(true);">Построить</div><br><br>
+                                <div class="btn green_btn" onclick="lab.edit();">Редактировать координаты</div><br><br>
+                            </div>
+                            <br>
+                            <div class="menu_item">
+                                <div class="menu_title">Поворот ломаной</div>
+                                Угол поворота(радиан):<br>
+                                <input type="text" id="alpha" placeholder="Alpha"><br>
+                                <div class="btn green_btn" onclick="lab.rotateLineCurve('ox');">Относительно Ox</div><br><br>
+                                <div class="btn green_btn" onclick="lab.rotateLineCurve('oy');">Относительно Oy</div>
+                            </div>
+                            <br>
+                            <div class="menu_item">
+                                <div class="menu_title">Кубический сплайн</div>
+                                <div class="btn green_btn" onclick="lab.drawSpline();">Построить</div>
+                            </div>
+                            <br>
+                            <div class="menu_title">
+                                <a href="index.html">Вернуться к списку работ</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                    <div id="board"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var viewer = new DialogViewer(),
+                dialog = new Dialog();
+            viewer.init(ge("dialog_view"));
+            dialog.init(viewer, "edit_dialog_title", "edit_dialog_ok", "edit_dialog_cancel", "edit_dialog_close", null);
+            dialog.setHandlers(function(){
+                lab.setCoords();
+                dialog.close();}, function(){});
+            var lab = new Lab21();
+            lab.init({"board": ge("board"),
+                      "n_input": ge("n"),
+                      "dialog": dialog,
+                      "a_input": ge("alpha")});
+        </script>
+    </body>
+</html>

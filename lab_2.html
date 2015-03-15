@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Лабораторная работа №2</title>
+        <link rel="stylesheet" type="text/css" href="/graphics/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/graphics/css/jsxgraph.css">
+        <script type="text/javascript" src="/graphics/js/jsxgraphcore.js"></script> 
+        <script type="text/javascript" src="/graphics/js/common.js"></script> 
+    <head>
+    <body>
+        <div id="wrap">
+            <div id="title">
+                <b>Лабораторная работа №2</b>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div id="menu">
+                            <div class="menu_item">
+                                <div class="menu_title">Ломаная</div>
+                                Количество точек:<br>
+                                <input type="text" id="n" placeholder="N"><br>
+                                <div class="btn green_btn" onclick="lab.drawPolyLine();">Построить</div>
+                            </div>
+                            <br>
+                            <div class="menu_item">
+                                <div class="menu_title">Кубический сплайн</div>
+                                <div class="btn green_btn" onclick="lab.drawSpline();">Построить</div>
+                            </div>
+                            <br>
+                            <div class="menu_title">
+                                <a href="index.html">Вернуться к списку работ</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="board" style="width: 1130px; height: 600px">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var lab = new Lab2();
+            lab.init({"board": ge("board"),
+                      "n_input": ge("n")});
+        </script>
+    </body>
+</html>
